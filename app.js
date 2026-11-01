@@ -21,3 +21,6 @@ app.use('/minions', minionsRouter);
 const ideasRouter = require('./server/ideas');
 app.use('/ideas', ideasRouter);
 
+const meetingsRouter = require('./server/meetings');
+app.use('/meetings', meetingsRouter);
+
