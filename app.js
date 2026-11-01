@@ -15,3 +15,6 @@ app.use(bodyParser.json());
 const apiRouter = require('./server/api');
 app.use('/api', apiRouter);
 
+const minionsRouter = require('./server/minions');
+app.use('/minions', minionsRouter);
+
