@@ -2,6 +2,9 @@ const express = require('express');
 const {getAllFromDatabase, addToDatabase, getFromDatabaseById, updateInstanceInDatabase, deleteFromDatabasebyId} = require('./db');
 const minionsRouter = express.Router();
 
+const workRouter = require('./work');
+minionsRouter.use('/:minionId/work', workRouter);
+
 minionsRouter.get('/', (req, res, next) => {
   res.send(getAllFromDatabase('minions')); //minions = case from the function that parses the data
 });
