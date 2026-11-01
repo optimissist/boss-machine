@@ -1,12 +1,13 @@
 const express = require('express');
 const {getAllFromDatabase, addToDatabase, getFromDatabaseById, updateInstanceInDatabase, deleteFromDatabasebyId} = require('./db');
+const checkMillionDollarIdea = require('./checkMillionDollarIdea');
 const ideasRouter = express.Router();
 
 ideasRouter.get('/', (req, res, next) => {
   res.send(getAllFromDatabase('ideas')); 
 });
 
-ideasRouter.post('/', (req, res, next) => {
+ideasRouter.post('/', checkMillionDollarIdea, (req, res, next) => {
     const newIdea = addToDatabase('ideas', req.body);
     res.status(201).send(newIdea);
 });
